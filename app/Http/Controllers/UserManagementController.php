@@ -210,6 +210,46 @@ class UserManagementController extends Controller
        return view('message', compact('msg'));
 	}
 
+  public function changePassword() {
+    return view('change_password');
+  }
+
+  public function changePasswordHandle(Request $request) {
+    try {
+    
+      $validator = Validator::make($request->all(),[
+        "password"	=>	"required|min:5|confirmed",
+				"oldpassword"	=>	"required",
+			]);
+
+			if ($validator->fails()) {
+        throw new Exception(implode(",",$validator->messages()->all()));
+      } 
+
+         #Match The Old Password
+        if(!Hash::check($request->oldpassword, auth()->user()->password)){
+        throw new Exception("Invalid old password");
+        }
+      
+      $user_id = Auth::id();
+      $user = User::find($user_id);
+      $user->password = Hash::make($request->password);
+      $user->save();
+      $msg = ["success" => true, "msg"	=> "Password changed successfully"];
+
+    } catch (Exception $e) {
+      Log::info([
+        "Error"	=>	$e->getMessage(),
+        "File"	=>	$e->getFile(),
+        "Line"	=>	$e->getLine()
+      ]);
+
+      $msg = ["success" => false, "msg"	=>	$e->getMessage()];
+    }
+    
+    return view('message', compact('msg'));
+  }
+
 // ##########################################################
 // ##########################################################
 // ##########################################################

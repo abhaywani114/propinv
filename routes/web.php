@@ -39,3 +39,10 @@ Route::post('usermanagement/reset', [UserManagementController::class, "reset"])-
 
 Route::get('usermanagement/logout', [UserManagementController::class, "logout"])->
 	name('usermanagement.logout');
+
+Route::get('usermanagement/change-password', [UserManagementController::class, "changePassword"])->
+  name('usermanagement.change_password');
+
+Route::post('usermanagement/change-password-handle', [UserManagementController::class, "changePasswordHandle"])->
+  name('usermanagement.change_password.handle');
+
