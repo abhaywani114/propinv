@@ -20,6 +20,7 @@ return new class extends Migration
             $table->timestamp('last_login')->nullable();
             $table->string('password');
             $table->enum('type', ['admin', 'user'])->default('user');
+            $table->enum('status', ['active', 'inactive', 'ban'])->default('inactive');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -16,7 +16,7 @@ use App\Http\Controllers\UserManagementController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('auth');
 
 //User Management Routes
 Route::get('usermanagement/login', [UserManagementController::class, "login"])->
@@ -26,23 +26,31 @@ Route::get('usermanagement/signup', [UserManagementController::class, "signup"])
 	name('usermanagement.signup')->middleware('guest');;
 
 Route::get('usermanagement/verify-email/{hash}', [UserManagementController::class, "verifyEmail"])->
-	name('usermanagement.verify.email')->middleware('guest');;
+	name('usermanagement.verify.email');
 
 Route::post('usermanagement/signup-handle', [UserManagementController::class, "signupHanlde"])->
 	name('usermanagement.signup.handle')->middleware('guest');;
 
 Route::post('usermanagement/login-handle', [UserManagementController::class, "loginHandle"])->
-	name('usermanagement.login.handle');
+	name('usermanagement.login.handle')->middleware('guest');
 
 Route::post('usermanagement/reset', [UserManagementController::class, "reset"])->
-	name('usermanagement.reset');
+	name('usermanagement.reset')->middleware('guest');
 
 Route::get('usermanagement/logout', [UserManagementController::class, "logout"])->
-	name('usermanagement.logout');
+	name('usermanagement.logout')->middleware('auth');
 
 Route::get('usermanagement/change-password', [UserManagementController::class, "changePassword"])->
-  name('usermanagement.change_password');
+  name('usermanagement.change_password')->middleware('auth');
 
 Route::post('usermanagement/change-password-handle', [UserManagementController::class, "changePasswordHandle"])->
-  name('usermanagement.change_password.handle');
+  name('usermanagement.change_password.handle')->middleware('auth');
+
+//##########################
+
+Route::post('usermanagement/datatable', [UserManagementController::class, "userDatatable"])->
+  name('usermanagement.datatable_main')->middleware('auth');
+
+Route::post('usermanagement/ban-user', [UserManagementController::class, "banUser"])->
+  name('usermanagement.user.ban')->middleware('auth');
 

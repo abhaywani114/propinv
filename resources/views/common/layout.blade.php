@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Wilio Survey, Quotation, Review and Register form Wizard by Ansonika.">
     <meta name="author" content="Ansonika">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
 
     <!-- Favicons-->
@@ -29,7 +30,11 @@
 	
 	<!-- MODERNIZR MENU -->
 	<script src="/js/modernizr.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.22/datatables.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<style>
 
+</style>
 </head>
 
 <body>
@@ -56,6 +61,9 @@
 	
 	<div class="container-fluid full-height">
 		<div class="row row-height">
+  @if (Auth::check() && Auth::user()->type == 'admin')
+        @yield('content')
+  @else
 			<div class="col-lg-6 content-left">
 				<div class="content-left-wrapper">
 					<a href="index.html" id="logo"><img src="img/logo.png" alt="" width="49" height="35"></a>
@@ -85,8 +93,9 @@
         @yield('content')
       </div>
 			<!-- /content-right-->
+  @endif
 		</div>
-		<!-- /row-->
+    <!-- /row-->
 	</div>
 	<!-- /container-fluid -->
 
@@ -132,7 +141,15 @@
 	<script src="/js/velocity.min.js"></script>
 	<script src="/js/functions.js"></script>
 	<script src="/js/pw_strenght.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/datatables.min.js"></script>
+  <script>
+		$.ajaxSetup({
+   			 headers: {
+            	'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
+			}
+ 		});
 
+  </script>
   @yield('js')
 </body>
 </html>

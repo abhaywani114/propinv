@@ -114,6 +114,12 @@ class UserManagementController extends Controller
             throw new Exception("Kindly verify your email first to login");
           }
 
+        if ($useru->status == 'ban') {
+            Auth::logout();
+            throw new Exception("Your account had been banned, kindly contact us.");
+          }
+
+
 					$useru->last_login =now();
 					$useru->save();
 				} else {
@@ -159,6 +165,7 @@ class UserManagementController extends Controller
 
         $useru->email_verified_at = now();
         $useru->remember_token = md5(now().$useru->email);
+        $useru->status = 'active';
         $useru->save();
 
         $msg = ["success" => true, "msg"	=> "Email verified, please proceed to login"];
@@ -250,142 +257,41 @@ class UserManagementController extends Controller
     return view('message', compact('msg'));
   }
 
-// ##########################################################
-// ##########################################################
-// ##########################################################
-// ##########################################################
-// ##########################################################
 
-		public function addNewTeacher(Request $request) {
-		try {
-
-			if (empty($request->admin_id)) {
-				$validator = Validator::make($request->all(),[
-					"name"				=>	"required|min:5",
-					"email"				=>	"required|email:rfc|unique:users,email",
-					"password"			=>	"required|confirmed",
-					"status"			=>	"required"
-				]);
-			} else {
-				$user = DB::table('users')->find(request()->admin_id);
-				$validator = Validator::make($request->all(),[
-					"name"				=>	"required|min:5",
-					"email"				=>	($user->email != $request->email) ? "required|email:rfc|unique:users,email":"required",
-					"password"			=>	"confirmed",
-					"status"			=>	"required"
-				]);
-			}
-
-
-			if ($validator->fails()) {
-				return response()->json(array(
-					'success' => false,
-					'errors' => $validator->getMessageBag()->toArray()
-				), 400);
-			} 
-
-			$array = [];
-			$array['name']			= $request->name;
-			$array['email']			= $request->email;
-			
-			if (!empty($request->password))
-				$array['password']		= Hash::make($request->password);
-
-			$array['type']			= 'admin';
-			$array['status']		= $request->status;
-			$array['updated_at']	= now();
-
-			if (empty($request->admin_id))
-				$array['created_at']	= now();
-
-			if (empty($request->admin_id))
-				DB::table('users')->insert($array);
-			else
-				DB::table('users')->where('id', $request->admin_id)->update($array);
-
-			if (empty($request->teacher_id))
-				$return = ["success" => true,"msg"	=> "Admin added"];
-			else
-				$return = ["success" => true,"msg"	=> "Admin update"];
-
-		} catch (Exception $e) {
-			Log::info([
-				"Error"	=>	$e->getMessage(),
-				"File"	=>	$e->getFile(),
-				"Line"	=>	$e->getLine()
-			]);
-
-			$return = ["success" => false,"error"	=>	$e->getMessage()];
-		}
-
-		return $return ?? '';
-
-	}
-
-		public function updateProfile(Request $request) {
-			
-			try {
-
-				$validator = Validator::make($request->all(),[
-					"password"			=>	"confirmed",
-				]);
+		public function userDatatable(Request $request) {
 		
-				if (!empty($request->password))
-					$array['password']		= Hash::make($request->password);
-
-				$array['updated_at']	= now();
-
-				DB::table('users')->where('id', Auth::User()->id)->update($array);
-
-				$return = ["success" => true,"msg"	=> "Profile update"];	
-				
-			} catch (Exception $e) {
-			Log::info([
-				"Error"	=>	$e->getMessage(),
-				"File"	=>	$e->getFile(),
-				"Line"	=>	$e->getLine()
-			]);
-
-			$return = ["success" => false,"error"	=>	$e->getMessage()];
-			}
-
-			return $return ?? '';
-		}
-
-		public function datatableMain(Request $request) {
-		
-		$data = DB::table('users')->where('type','admin')->get();
+		$data = DB::table('users')->get();
 
 		return Datatables::of($data)->
 			addIndexColumn()->
 			addColumn('name', function ($c) {
-				return $c->name;
+				return "$c->first_name $c->last_name";
 			})->
 
 			addColumn('email', function ($c) {
 				return $c->email;
 			})->
 
-			addColumn('last_date', function ($c) {
-				return !empty($c->last_login) ? date("d-M-Y", strtotime($c->last_login)):'-';
+			addColumn('is_verified', function ($c) {
+        return !empty($c->email_verified_at) ?  '<span style="font-size: 20px; color:green;"><i class="fa fa-check"></i></span>':'<span style="font-size: 20px; color:red;" ><i class="fa fa-times"></i></span>';
+
 			})->
 
 			addColumn('status', function ($c) {
-				return ucfirst($c->status);
+				return ucfirst($c->status ?? '');
 			})->
 
-			addColumn('edit', function ($c) {
+			addColumn('ban', function ($c) {
 				$id = $c->id;
+
+        if ($c->status == 'ban')
+          return '';
+
 				return <<<EOD
-			<span onclick="updateAdmin($id)" class="edit_btn"><i class="fa fa-edit"></i></span>
+			<span onclick="ban($id)" class="ban_btn"><i class="fa fa-ban"></i></span>
 EOD;
 			})->
 
-			addColumn('delete', function ($c) {
-				return <<<EOD
-				<span onclick="delete_admin($c->id)" class="edit_btn text-danger"><i class="fa fa-trash"></i></span>
-EOD;
-			})->
 			escapeColumns([])->make(true);
 	}
 
@@ -398,9 +304,35 @@ EOD;
 		return view('components.admin_update_modal',compact('user'));	
 	}
 
-	public function deleteAdmin(Request $request) {
-		DB::table('users')->where('id', request()->course_id)->delete();
-		return ["success" => true];
+  public function banUser(Request $request) {
+		try {
+      if (Auth::User()->type != 'admin')
+        throw new Exception("You don't have the privilege to perform action");
+ 
+      $validator = Validator::make($request->all(),[
+				"user_id"	=>	"required",
+			]);
+
+			if ($validator->fails()) {
+        throw new Exception(implode(",",$validator->messages()->all()));
+      } 
+
+      $user = User::find($request->user_id);
+      if (!$user)
+        throw new Exception("Invalid user id");
+
+      $user->status = "ban";
+      $user->save();
+
+      return response()->json(['status'=>'ok']);
+		} catch (Exception $e) {
+			Log::info([
+				"Error"	=>	$e->getMessage(),
+				"File"	=>	$e->getFile(),
+				"Line"	=>	$e->getLine()
+			]);
+      abort(404);
+		}
 	}
 
 }
