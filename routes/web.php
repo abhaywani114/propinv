@@ -19,6 +19,12 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
 
+Route::get('/contact-us', function () {
+    return view('contact_us');
+})->name('contact_us');
+
+
+
 //User Management Routes
 Route::get('usermanagement/login', [UserManagementController::class, "login"])->
 	name('usermanagement.login')->middleware('guest');
@@ -59,4 +65,7 @@ Route::post('usermanagement/ban-user', [UserManagementController::class, "banUse
 
 Route::post('request/form_1', [HandleRequestsController::class, "form1"])->
   name('request.form1')->middleware('auth');
+
+Route::post('request/contact_form', [HandleRequestsController::class, "contactForm"])->
+  name('request.contact_form');
 

@@ -66,7 +66,7 @@
   @else
 		<div class="col-lg-6 content-left">
 				<div class="content-left-wrapper">
-					<a href="index.html" id="logo"><img src="img/restart.svg" alt="" width="25" height="25"></a>
+					<a href="/" id="logo"><img src="img/restart.svg" alt="" width="25" height="25"></a>
 					<div id="social">
 						<ul>
 							<li><a href="#0"><i class="icon-facebook" hidden="hidden"></i></a></li>
@@ -77,11 +77,11 @@
 					</div>
 					<!-- /social -->
 					<div>
-						<figure><img src="img/house5.svg" alt="house" class="img-fluid" style="height: 200px;"></figure>
+						<figure><img src="/img/house5.svg" alt="house" class="img-fluid" style="height: 200px;"></figure>
 						<h2>Request a Service</h2>
 						<p>Please use the form to request a service from us. Should you encounter any issues or have any queries, please do not hesitate to contact us.</p>
 						<p>If you are requesting a <b>fire asset check or block inspection</b> for the first time, or an <b>eviction</b> is taking place, <b>please contact us first.</b></p>
-						<a href="contactus.html" class="btn_1 rounded">Contact Us</a>
+						<a href="{{route('contact_us')}}" class="btn_1 rounded">Contact Us</a>
 						<a href="#start" class="btn_1 rounded mobile_btn">Contact Us</a>
 					</div>
 					<div class="copy">© 2022 Property Report Management Services</div>

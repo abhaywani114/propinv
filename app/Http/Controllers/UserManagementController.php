@@ -36,6 +36,7 @@ class UserManagementController extends Controller
 				"first_name"		=>	"required|min:2",
 				"last_name"		=>	"required|min:1",
 				"email"		=>	"required|email:rfc|unique:users,email",
+				"telephone"		=>	"required|unique:users,phone",
 				"password"	=>	"required|confirmed",
 				 //'g-recaptcha-response' => [new ValidRecaptcha]
 			]);
@@ -49,7 +50,9 @@ class UserManagementController extends Controller
 			DB::table('users')->insert([
 				"first_name"	=>	$request->first_name,
 				"last_name"	=>	$request->last_name,
-				"email"			=>	$request->email,
+        "email"			=>	$request->email,
+        "agentname" => $request->agentname,
+        "phone"   => $request->telephone,
 				"password"		=>	Hash::make($request->password),
         "remember_token" => $rt,
 				'type'			=>	'user',

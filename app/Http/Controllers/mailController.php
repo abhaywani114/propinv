@@ -12,6 +12,7 @@ class mailController extends Controller
 {
 	public function sendContactForm(Request $request) {
 		
+    try {
 			$validator = Validator::make($request->all(),[
                 "first_name"		=> 'required',
                 "last_name"		=> 'required',
@@ -30,6 +31,7 @@ class mailController extends Controller
 		    $data = $request->validate([
                 "first_name" => ['required'],
                 "last_name"	=>	 ['required'],
+                "phone"	=>	 ['required'],
                 "email" => ['required','email'],
                 "message" => ['required'],
         	]);
@@ -39,6 +41,10 @@ class mailController extends Controller
 			   $message->from('support@frcsmockexam.com', 'Support' );
 			   $message->to(env('MAIL_FROM_ADDRESS'))->subject("$sub | Contact Request");
 			});
+    } catch (Exception $e) {
+      throw $e;
+    }
+ 
 
 		return ['status' =>	true];
 	}

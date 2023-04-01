@@ -103,19 +103,19 @@
 							<div class="step wizard-step" style="display: none;">
 								<h3 class="main_question"><strong>2/8</strong>Please provide <b>your</b> information</h3>
 								<div class="form-group">
-									<input type="text" name="agentname" class="form-control required valid" placeholder="Agent/Business Name" onkeyup="getVals(this, 'agentname')">
+									<input type="text" name="agentname" class="form-control required valid" placeholder="Agent/Business Name" value="{{Auth::User()->agentname}}" onkeyup="getVals(this, 'agentname')"  readonly>
 								</div>
 								<div class="form-group">
-									<input type="text" name="firstname" class="form-control required valid" placeholder="First Name" onkeyup="getVals(this, 'firstname')">
+									<input type="text" name="firstname" class="form-control required valid" placeholder="First Name" onkeyup="getVals(this, 'firstname')" value="{{Auth::User()->first_name}}"  readonly  >
 								</div>
 								<div class="form-group">
-									<input type="text" name="lastname" class="form-control required valid" placeholder="Last Name" onkeyup="getVals(this, 'lastname')">
+									<input type="text" name="lastname" class="form-control required valid" placeholder="Last Name" onkeyup="getVals(this, 'lastname')" value="{{Auth::User()->last_name}}"  readonly  >
 								</div>
 								<div class="form-group">
-									<input type="email" name="agentemail" class="form-control required valid" placeholder="Your Email" onkeyup="getVals(this, 'agentemail')">
+									<input type="email" name="agentemail" class="form-control required valid" placeholder="Your Email" onkeyup="getVals(this, 'agentemail')" value="{{Auth::User()->email}}" readonly  >
 								</div>
 								<div class="form-group">
-									<input type="text" name="telephone" class="form-control required valid" placeholder="Telephone" onkeyup="getVals(this, 'agentphone')">
+									<input type="text" name="telephone" class="form-control required valid" placeholder="Telephone" onkeyup="getVals(this, 'agentphone')" value="{{Auth::User()->phone}}" readonly  >
 								</div>
 							</div>
 							<!-- /step-->
@@ -329,10 +329,10 @@
 											<strong>2</strong>
 											<h5>Your Information:</h5>
 											<p>
-												<span id="agentname"></span>
-                        <br><span id="firstname"></span><span id="lastname"></span>
-												<br><span id="agentemail"></span>
-												<br><span id="agentphone"></span>
+												<span id="agentname">{{Auth::User()->agentname}}</span>
+                        <br><span id="firstname">{{Auth::User()->first_name}}</span> <span id="lastname">{{Auth::User()->last_name}}</span>
+												<br><span id="agentemail">{{Auth::User()->email}}</span>
+												<br><span id="agentphone">{{Auth::User()->phone}}</span>
 											</p>
 
 										</li>

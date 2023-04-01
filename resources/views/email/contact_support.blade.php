@@ -6,11 +6,10 @@
 <p>
 <strong>Email:</strong> {{ $data['email'] }}
 <br/>
-<strong>Subject:</strong> {{ $data['subject'] ?? '' }}
+<strong>Phone:</strong> {{ $data['phone'] ?? '' }}
 </p>
  
 <p>
 <strong>Message:</strong><br/> {!! nl2br(strip_tags($data['message'], '<p><a><br>'));  !!}
 </p>
-----------End of message------
 @endsection

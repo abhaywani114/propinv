@@ -14,25 +14,23 @@
       <div id="middle-wizard">
         <div class="step">
           <h3 class="main_question"><strong>1/3</strong>Please fill with your details</h3>
+
+         <div class="form-group">
+            <input type="text" name="agentname" class="form-control valid" placeholder="Agent/Business Name" onkeyup="getVals(this, 'agentname')">
+          </div>
+
           <div class="form-group">
             <input type="text" name="first_name" class="form-control required" placeholder="First Name" onchange="getVals(this, 'first_name');">
           </div>
           <div class="form-group">
             <input type="text" name="last_name" class="form-control required" placeholder="Last Name" onchange="getVals(this, 'last_name');">
           </div>
+
           <div class="form-group">
-            <div class="styled-select clearfix">
-              <select class="wide required" name="country" onchange="getVals(this, 'country');">
-                <option value="">Your Country</option>
-                <option value="Europe">Europe</option>
-                <option value="Asia">Asia</option>
-                <option value="North America">North America</option>
-                <option value="South America">South America</option>
-                <option value="Oceania">Oceania</option>                             
-              </select>
-            </div>
+              <input type="text" name="telephone" class="form-control required valid" placeholder="Telephone" onkeyup="getVals(this, 'agentphone')">
           </div>
-          <div class="form-group terms">
+
+         <div class="form-group terms">
             <label class="container_check">Please accept our <a href="#" data-bs-toggle="modal" data-bs-target="#terms-txt">Terms and conditions</a>
               <input type="checkbox" name="terms" value="Yes" class="required">
               <span class="checkmark"></span>
@@ -61,9 +59,10 @@
               <li><strong>1</strong>
                 <h5>Personal Details</h5>
                 <ul>
+									<li><label>Agent/Business Name:</label>: <span id="agentname"></span></li>
                   <li><label>First Name</label>: <span id="first_name"></span></li>
                   <li><label>Last Name</label>: <span id="last_name"></span></li>
-                  <li><label>Country</label>: <span id="country"></span></li>
+                  <li><label>Telephone</label>: <span id="agentphone"></span></li>
                 </ul>
               </li>
               <li><strong>2</strong>

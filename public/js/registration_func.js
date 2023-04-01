@@ -67,6 +67,20 @@
 	// Summary 
 	function getVals(formControl, controlType) {
 		switch (controlType) {
+  
+      case 'agentname':
+			// Get the value for a textarea
+			var value = $(formControl).val();
+			$("#agentname").text(value);
+			break;
+
+
+		case 'agentphone':
+			// Get the value for a textarea
+			var value = $(formControl).val();
+			$("#agentphone").text(value);
+			break;
+
 
 			case 'first_name':
 				// Get the value for a input text

@@ -54,6 +54,23 @@ class HandleRequestsController extends Controller
     return view('message', compact('msg'));
   }
 
+  public function contactForm(Request $request) {
+    try {
+      app('App\Http\Controllers\mailController')->sendContactForm($request);
+      $msg = ["success" => true, "msg" =>	"Your response has been recorded, we will contact you shortly"];
+    } catch (Exception $e) {
+      Log::info([
+				"Error"	=>	$e->getMessage(),
+				"File"	=>	$e->getFile(),
+				"Line"	=>	$e->getLine()
+			]);
+      $msg = ["success" => false, "msg" =>	"Error: ". $e->getMessage()];
+    }
+    
+    return view('message', compact('msg'));
+  }
+
+
   private function renderHtml($fields, $request) {
     $html = '<ul>';
 
