@@ -13,7 +13,7 @@
 						<!-- Leave for security protection, read docs for details -->
 						<div id="middle-wizard" class="wizard-branch wizard-wrapper">
 							<div class="step wizard-step" style="display: none;">
-								<h3 class="main_question wizard-header"><strong>1/7</strong>Which service do you require?</h3>
+								<h3 class="main_question wizard-header"><strong>1/8</strong>Which service do you require?</h3>
 								<div class="form-group">
 									<label class="container_check version_2">
 										Inventory and Check In
@@ -101,7 +101,7 @@
 							</div>
 							<!-- /step-->
 							<div class="step wizard-step" style="display: none;">
-								<h3 class="main_question"><strong>2/7</strong>Please provide <b>your</b> information</h3>
+								<h3 class="main_question"><strong>2/8</strong>Please provide <b>your</b> information</h3>
 								<div class="form-group">
 									<input type="text" name="agentname" class="form-control required valid" placeholder="Agent/Business Name" onkeyup="getVals(this, 'agentname')">
 								</div>
@@ -120,7 +120,7 @@
 							</div>
 							<!-- /step-->
 							<div class="step wizard-step" style="display: none;">
-								<h3 class="main_question"><strong>3/7</strong>Please provide property details</h3>
+								<h3 class="main_question"><strong>3/8</strong>Please provide property details</h3>
 								<div class="styled-select clearfix form-group">
 									<select class="wide required valid" name="propertytype" id="propertytype_select" style="display: none;">
 										<option value="" disabled="" selected="">Type of property?</option>
@@ -200,7 +200,7 @@
 							<!-- /step-->
 							<div class="step wizard-step" style="display: none;">
 								<div class="form-group">
-									<h3 class="main_question"><strong>4/7</strong>Please provide the <b>tenants</b> details</h3>
+									<h3 class="main_question"><strong>4/8</strong>Please provide the <b>tenants</b> details</h3>
 									<label><strong>Tenant 1</strong></label>
 									<div class="form-group">
 										<input type="text" name="tt1name" class="form-control required valid" placeholder="Tenant One Name" onkeyup="getVals(this, 'tt1name')">
@@ -223,9 +223,63 @@
 									</div>
 								</div>
 							</div><!-- end step-->
+
+          <div class="step wizard-step" style="display: none;">
+								<h3 class="main_question"><strong>5/8</strong>Tenancy</h3>
+
+								<div class="styled-select clearfix form-group">
+									<select class="wide required valid" name="tenancytype" id="tenancytype_select" style="display: none;">
+										<option value="" disabled="" selected="">What type of tenancy is to be assigned?</option>
+										<option value="Single">Single</option>
+										<option value="Joint">Joint</option>
+										<option value="Multiple">Multiple</option>
+										<option value="HMO">HMO</option>
+                  </select>
+                  <div class="nice-select wide required" tabindex="0">
+                    <span class="current">What type of tenancy is to be assigned?</span>
+                    <ul class="list">
+                      <li data-value="" class="option disabled focus selected">What type of tenancy is to be assigned?</li>
+                      <li data-value="Single" class="option">Single</li>
+                      <li data-value="Joint" class="option">Joint</li>
+                      <li data-value="Multiple" class="option">Multiple</li>
+                      <li data-value="HMO" class="option">HMO</li>
+                    </ul>
+                  </div>
+								</div>
+
+          			<label>Tenancy start date</label>
+								<div class="form-group">
+									<input type="text" name="tend_datepicker" class="form-control required tdate-pick-single valid" id="tend_datepicker_value" />
+								</div>
+
+								<div class="styled-select clearfix form-group">
+									<select class="wide required valid" name="managementcategory" id="managementcategory_select" style="display: none;">
+										<option value="" disabled="" selected="">Management Category</option>
+										<option value="Not applicable">Not applicable</option>
+										<option value="Fully Managed">Fully Managed</option>
+										<option value="Let Only">Let Only</option>
+										<option value="Rent Collection">Rent Collection</option>
+                  </select>
+                  <div class="nice-select wide required" tabindex="0">
+                    <span class="current">What type of tenancy is to be assigned?</span>
+                    <ul class="list">
+                      <li data-value="" class="option disabled focus selected">Management Category</li>
+                      <li data-value="Not applicable" class="option">Not applicable</li>
+                      <li data-value="Fully Managed" class="option">Fully Managed</li>
+                      <li data-value="Let Only" class="option">Let Only</li>
+                      <li data-value="Rent Collection" class="option">Rent Collection</li>
+                    </ul>
+                  </div>
+								</div>
+
+
+							</div>
+
+							<!-- /step-->
+
 							<!-- /step-->
 							<div class="step wizard-step" style="display: none;">
-								<h3 class="main_question"><strong>5/7</strong>Further information</h3>
+								<h3 class="main_question"><strong>6/8</strong>Further information</h3>
 								<label>When would you like the instruction to take place?</label>
 								<div class="form-group">
 									<input type="text" name="datepicker" class="form-control required date-pick-single valid" id="datepicker_value" />
@@ -240,8 +294,9 @@
 								</div>
 							</div>
 							<!-- /step-->
-							<div class="step wizard-step" style="display: none;">
-								<h3 class="main_question"><strong>6/7</strong>Is there anything else we need to know?</h3>
+    
+              <div class="step wizard-step" style="display: none;">
+								<h3 class="main_question"><strong>7/8</strong>Is there anything else we need to know?</h3>
 								<div class="form-group add_top_30">
 									<label>Please provide any additional information below.</label>
 									<textarea name="furtherinfo" class="form-control valid" style="height:100px;" placeholder="Any additional information required?" onkeyup="getVals(this, 'furtherinfo');"></textarea>
@@ -262,7 +317,7 @@
 							</div>
 							<!-- end step-->
 							<div class="submit step wizard-step current" style="">
-								<h3 class="main_question"><strong>7/7</strong>Summary</h3>
+								<h3 class="main_question"><strong>8/8</strong>Summary</h3>
 								<div class="summary">
 									<ul>
 										<li>
@@ -316,8 +371,17 @@
 												<br><b>TT2 Phone:</b> <span id="tt2phone"></span>
 											</p>
 										</li>
-										<li>
+                  	<li>
 											<strong>6</strong>
+											<h5>Tenancy Type</h5>
+											<p>
+												<b>Tenancy Type:</b> <span id="tenancytype_span"></span>
+												<br><b>Tenancy start date</b> <span id="tend_datepicker_span"></span>
+												<br><b>Management Category</b> <span id="managementcategory_span"></span>
+                      </p>
+                    </li>
+										<li>
+											<strong>7</strong>
 											<h5>Date &amp; Key Information:</h5>
 											<b>Date:</b> <span id="date"></span>
 											<p>
@@ -325,7 +389,7 @@
 												<br><b>Key return:</b> <span id="keyreturn"></span>
 										</p></li>
 										<li>
-											<strong>7</strong>
+											<strong>8</strong>
 											<h5>Further Information:</h5>
 											<b>Additional Info: </b><span id="furtherinfo"></span>
 											<p><label>File upload</label>: <span id="fileupload"></span></p>
@@ -365,9 +429,39 @@
           }
       });
                   
-    $("#datepicker_value").on("change", function () {
-			$("#date").text($("#datepicker_value").val());
-    }).trigger("change");
-    function fn() {$("#date").text($("#datepicker_value").val());}
+    $('input.tdate-pick-single').daterangepicker({
+        autoUpdateInput: false,
+        singleDatePicker: true,
+        autoApply: true,
+        minDate: new Date(),
+        showCustomRangeLabel: false,
+        locale: {
+        	separator:' > ',
+            direction: 'ltr',
+            format: 'MM/DD/YY'
+        }
+      }, function (chosen_date) {
+        $('input.tdate-pick-single').val(chosen_date.format('MM/DD/YY'));
+        $("#tend_datepicker_span").text(chosen_date.format('MM/DD/YY'));
+      });
+
+    // Date picker single
+    $('input.date-pick-single').daterangepicker({
+        autoUpdateInput: false,
+        singleDatePicker: true,
+        autoApply: true,
+        minDate: new Date(),
+        showCustomRangeLabel: false,
+        locale: {
+        	separator:' > ',
+            direction: 'ltr',
+            format: 'MM/DD/YY'
+        }
+      }, function (chosen_date) {
+        $('input.date-pick-single').val(chosen_date.format('MM/DD/YY'));
+        $("#date").text(chosen_date.format('MM/DD/YY'));
+    });
+
+    function fn() {}
   </script>
 @endsection

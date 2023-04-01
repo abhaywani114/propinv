@@ -54,22 +54,6 @@
 			});
 		});
 
-    // Date picker single
-    $('input.date-pick-single').daterangepicker({
-        autoUpdateInput: false,
-        singleDatePicker: true,
-        autoApply: true,
-        minDate: new Date(),
-        showCustomRangeLabel: false,
-        locale: {
-        	separator:' > ',
-            direction: 'ltr',
-            format: 'MM/DD/YY'
-        }
-      }, function (chosen_date) {
-		$('input.date-pick-single').val(chosen_date.format('MM/DD/YY'));
-	});
-
 	// Date picker single + translation French + european date format
 	$('input.date-pick-single-lang').daterangepicker({
         autoUpdateInput: false,

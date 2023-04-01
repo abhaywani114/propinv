@@ -86,6 +86,16 @@ $("#propertyfurnishing_select").on("change", function () {
 	$("#propertyfurnishing").text($("#propertyfurnishing_select").val());
 }).trigger("change");
 
+$("#tenancytype_select").on("change", function () {
+	$("#tenancytype_span").text($("#tenancytype_select").val());
+}).trigger("change");
+
+$("#managementcategory_select").on("change", function () {
+	$("#managementcategory_span").text($("#managementcategory_select").val());
+}).trigger("change");
+
+
+
 
 function getVals(formControl, controlType) {
 	switch (controlType) {
