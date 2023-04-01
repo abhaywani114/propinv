@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserManagementController;
+use App\Http\Controllers\HandleRequestsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,4 +54,9 @@ Route::post('usermanagement/datatable', [UserManagementController::class, "userD
 
 Route::post('usermanagement/ban-user', [UserManagementController::class, "banUser"])->
   name('usermanagement.user.ban')->middleware('auth');
+
+//######################### Handle user requests
+
+Route::post('request/form_1', [HandleRequestsController::class, "form1"])->
+  name('request.form1')->middleware('auth');
 

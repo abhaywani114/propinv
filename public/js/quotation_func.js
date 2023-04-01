@@ -224,6 +224,7 @@ function getVals(formControl, controlType) {
 			var value = $(formControl).val();
 			$("#furtherinfo").text(value);
 			break;
+    
 
 		case 'fileupload':
 			// Get the value for a textarea

@@ -1,10 +1,16 @@
 @extends('common.layout')
 
-@section('title', 'Sign Up')
+@section('title', 'Response')
 
 @section('content')
 <div id="wizard_container">
-
+  <style>
+    .content-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+</style>
   <div >
   @if($msg['success'] == false)
     <a href="/">Home</a> 

@@ -8,7 +8,7 @@
 						<div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><div class="ui-progressbar-value ui-widget-header ui-corner-left ui-corner-right" style="width: 100%;"></div></div>
 					</div>
 					<!-- /top-wizard -->
-					<form id="wrapped" method="POST" enctype="multipart/form-data" novalidate="novalidate" action="../sendemail.php" class="wizard-form">
+					<form id="wrapped" method="POST" enctype="multipart/form-data" novalidate="novalidate" action="{{route('request.form1')}}" class="wizard-form">
 						<input id="website" name="website" type="text" value="">
 						<!-- Leave for security protection, read docs for details -->
 						<div id="middle-wizard" class="wizard-branch wizard-wrapper">
@@ -228,7 +228,7 @@
 								<h3 class="main_question"><strong>5/7</strong>Further information</h3>
 								<label>When would you like the instruction to take place?</label>
 								<div class="form-group">
-									<input type="text" name="datepicker" class="form-control required date-pick-single valid" id="datepicker_value">
+									<input type="text" name="datepicker" class="form-control required date-pick-single valid" id="datepicker_value" />
 								</div>
 								<label>Finally, please provide key arrangements. If the keys are in a safe, please provide the location and code.</label>
 
@@ -256,7 +256,7 @@
 									<label class="container_check">
 										I have read and I accept the <a href="#" data-bs-toggle="modal" data-bs-target="#terms-txt">Terms and conditions</a>
 										<input type="checkbox" name="terms" value="Yes" class="required valid"><span for="terms" class="error" style="display: none;">Required</span>
-										<span class="checkmark"></span>
+										<span class="checkmark" onclick="fn()"></span>
 									</label>
 								</div>
 							</div>
@@ -268,16 +268,16 @@
 										<li>
 											<strong>1</strong>
 											<h5>Service requested:</h5>
-											<p id="question_1">30 minute viewing</p>
+											<p id="question_1"></p>
 										</li>
 										<li>
 											<strong>2</strong>
 											<h5>Your Information:</h5>
 											<p>
-												<span id="agentname">Whimbrell Internation</span>
-												<br><span id="firstname">Abrar</span> <span id="lastname">Ajaz</span>
-												<br><span id="agentemail">abhaywani114@gmail.com</span>
-												<br><span id="agentphone">08493081876</span>
+												<span id="agentname"></span>
+                        <br><span id="firstname"></span><span id="lastname"></span>
+												<br><span id="agentemail"></span>
+												<br><span id="agentphone"></span>
 											</p>
 
 										</li>
@@ -285,9 +285,9 @@
 											<strong>3</strong>
 											<h5>Property Specification:</h5>
 											<p>
-												<b>Type:</b> <span id="propertytype">House</span>
-												<br><b>Size:</b> <span id="propertysize">One Bedroom</span>
-												<br><b>Furnishing:</b> <span id="propertyfurnishing">Part Furnished</span>
+												<b>Type:</b> <span id="propertytype"></span>
+												<br><b>Size:</b> <span id="propertysize"></span>
+												<br><b>Furnishing:</b> <span id="propertyfurnishing"></span>
 											</p>
 										</li>
 
@@ -295,10 +295,10 @@
 											<strong>4</strong>
 											<h5>Property Address:</h5>
 											<p>
-												<b>First Line:</b> <span id="firstline">Sogam Lolab</span>,
-												<br><b>Area:</b> <span id="area">s</span>,
-												<br><b>Town/City:</b> <span id="towncity">Sxr</span>,
-												<br><b>Post Code</b> <span id="postcode">193223</span>
+												<b>First Line:</b> <span id="firstline"></span>,
+												<br><b>Area:</b> <span id="area"></span>,
+												<br><b>Town/City:</b> <span id="towncity"></span>,
+												<br><b>Post Code</b> <span id="postcode"></span>
 											</p>
 										</li>
 
@@ -306,23 +306,23 @@
 											<strong>5</strong>
 											<h5>Tenant Details:</h5>
 											<p>
-												<b>TT1 Name:</b> <span id="tt1name">Abc</span>
-												<br><b>TT1 Email:</b> <span id="tt1email">abhaywani114@gmail.com</span>
-												<br><b>TT1 Phone:</b> <span id="tt1phone">08493081876</span>
+												<b>TT1 Name:</b> <span id="tt1name"></span>
+												<br><b>TT1 Email:</b> <span id="tt1email"></span>
+												<br><b>TT1 Phone:</b> <span id="tt1phone"></span>
 											</p>
 											<p>
 												<b>TT2 Name:</b> <span id="tt2name">Two</span>
-												<br><b>TT2 Email:</b> <span id="tt2email">mir.faizu.18@gmail.com</span>
-												<br><b>TT2 Phone:</b> <span id="tt2phone">08493081876</span>
+												<br><b>TT2 Email:</b> <span id="tt2email"></span>
+												<br><b>TT2 Phone:</b> <span id="tt2phone"></span>
 											</p>
 										</li>
 										<li>
 											<strong>6</strong>
 											<h5>Date &amp; Key Information:</h5>
-											<b>Date:</b> <span id="date">01/04/23</span>
+											<b>Date:</b> <span id="date"></span>
 											<p>
-												<b>Key collection:</b> <span id="keycollection">JJJ</span>
-												<br><b>Key return:</b> <span id="keyreturn">KKKK</span>
+												<b>Key collection:</b> <span id="keycollection"></span>
+												<br><b>Key return:</b> <span id="keyreturn"></span>
 										</p></li>
 										<li>
 											<strong>7</strong>
@@ -338,6 +338,7 @@
 						</div>
 						<!-- /middle-wizard -->
 						<div id="bottom-wizard">
+              @csrf
 							<button type="button" name="backward" class="backward">Prev</button>
 							<button type="button" name="forward" class="forward" disabled="disabled">Next</button>
 							<button type="submit" name="process" class="submit">Submit</button>
@@ -366,5 +367,7 @@
                   
     $("#datepicker_value").on("change", function () {
 			$("#date").text($("#datepicker_value").val());
-		}).trigger("change");</script>
+    }).trigger("change");
+    function fn() {$("#date").text($("#datepicker_value").val());}
+  </script>
 @endsection

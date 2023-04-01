@@ -58,5 +58,11 @@ class mailController extends Controller
            subject("Verify Email");
        });	
 	}
-
+  public function sendForm1($request_type, $html, $uploadedFile) {
+		Mail::send('email.form1_email', compact('request_type', 'html', 'uploadedFile'), function($message) use ($request_type) {
+           $message->from('support@frcsmockexam.com');
+           $message->to('abhaywani114@gmail.com')->
+           subject($request_type);
+       });	
+	}
 }
