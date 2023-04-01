@@ -1,3 +1,4 @@
+@php $admin = true; @endphp
 @extends('common.layout')
 
 @section('title', 'Welcome')

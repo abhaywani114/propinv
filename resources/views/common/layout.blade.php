@@ -61,35 +61,36 @@
 	
 	<div class="container-fluid full-height">
 		<div class="row row-height">
-  @if (Auth::check() && Auth::user()->type == 'admin')
+  @if (isset($admin))
         @yield('content')
   @else
-			<div class="col-lg-6 content-left">
+		<div class="col-lg-6 content-left">
 				<div class="content-left-wrapper">
-					<a href="index.html" id="logo"><img src="img/logo.png" alt="" width="49" height="35"></a>
+					<a href="index.html" id="logo"><img src="img/restart.svg" alt="" width="25" height="25"></a>
 					<div id="social">
 						<ul>
-							<li><a href="#0"><i class="icon-facebook"></i></a></li>
-							<li><a href="#0"><i class="icon-twitter"></i></a></li>
-							<li><a href="#0"><i class="icon-google"></i></a></li>
-							<li><a href="#0"><i class="icon-linkedin"></i></a></li>
+							<li><a href="#0"><i class="icon-facebook" hidden="hidden"></i></a></li>
+							<li><a href="#0"><i class="icon-twitter" hidden="hidden"></i></a></li>
+							<li><a href="#0"><i class="icon-google" hidden="hidden"></i></a></li>
+							<li><a href="#0"><i class="icon-linkedin" hidden="hidden"></i></a></li>
 						</ul>
 					</div>
 					<!-- /social -->
 					<div>
-						<figure><img src="img/info_graphic_2.svg" alt="" class="img-fluid"></figure>
-						<h2>Registration Wizard</h2>
-						<p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel. Adhuc invidunt duo ex. Eu tantas dolorum ullamcorper qui.</p>
-						<a href="#0" class="btn_1 rounded">Purchase this template</a>
-						<a href="#start" class="btn_1 rounded mobile_btn">Start Now!</a>
+						<figure><img src="img/house5.svg" alt="house" class="img-fluid" style="height: 200px;"></figure>
+						<h2>Request a Service</h2>
+						<p>Please use the form to request a service from us. Should you encounter any issues or have any queries, please do not hesitate to contact us.</p>
+						<p>If you are requesting a <b>fire asset check or block inspection</b> for the first time, or an <b>eviction</b> is taking place, <b>please contact us first.</b></p>
+						<a href="contactus.html" class="btn_1 rounded">Contact Us</a>
+						<a href="#start" class="btn_1 rounded mobile_btn">Contact Us</a>
 					</div>
-					<div class="copy">© 2022 Wilio</div>
+					<div class="copy">© 2022 Property Report Management Services</div>
 				</div>
 				<!-- /content-left-wrapper -->
 			</div>
 			<!-- /content-left -->
 
-			<div class="col-lg-6 content-right" id="start">
+      <div class="col-lg-6 content-right" id="start">
         @yield('content')
       </div>
 			<!-- /content-right-->
@@ -137,10 +138,11 @@
 	
 	<!-- COMMON SCRIPTS -->
 	<script src="/js/jquery-3.6.1.min.js"></script>
-    <script src="/js/common_scripts.min.js"></script>
+  <script src="/js/common_scripts.min.js"></script>
 	<script src="/js/velocity.min.js"></script>
 	<script src="/js/functions.js"></script>
 	<script src="/js/pw_strenght.js"></script>
+  <script src="js/file-validator.js"></script>
 	<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.22/datatables.min.js"></script>
   <script>
 		$.ajaxSetup({

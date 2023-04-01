@@ -121,7 +121,7 @@ a.animated_link:before {
   bottom: -5px;
   opacity: 1;
   left: 0;
-  background-color: #434bdf;
+  background-color: #f7e491;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   transform: scaleX(0);
@@ -161,13 +161,13 @@ a.btn_1,
 .btn_1 {
   border: none;
   color: #fff;
-  background: #434bdf;
+  background: #fbe384;
   outline: none;
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
   padding: 12px 25px;
-  color: #fff;
+  color: #000;
   font-weight: 600;
   text-align: center;
   line-height: 1;
@@ -185,7 +185,7 @@ a.btn_1,
 }
 a.btn_1:hover,
 .btn_1:hover {
-  background-color: #d80075;
+  background-color: #fbebb3;
 }
 a.btn_1.full-width,
 .btn_1.full-width {
@@ -349,25 +349,25 @@ a.btn_1.rounded,
 }
 
 .content-left {
-  background-color: #434bdf;
-  padding: 0;
+    background-color: #4b749f;
+    padding: 0;
 }
 
 .content-left-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  height: 100%;
-  min-height: 100%;
-  padding: 60px 90px 35px 90px;
-  background-color: #434bdf;
-  color: #fff;
-  text-align: center;
-  position: relative;
-  background: transparent;
-  background: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.5));
-  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    min-height: 100%;
+    padding: 60px 90px 35px 90px;
+    background-color: #4b749f;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    background: transparent;
+    background: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.5));
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.5));
 }
 @media (max-width: 991px) {
   .content-left-wrapper {
@@ -428,13 +428,12 @@ a.btn_1.rounded,
 }
 
 .content-right {
-  padding: 60px;
-  height: 100%;
-  min-height: 100%;
-  overflow-y: scroll;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    padding: 60px;
+    height: 100%;
+    min-height: 100%;
+    overflow-y: auto;
+}
+
 }
 @media (max-width: 991px) {
   .content-right {
@@ -557,28 +556,28 @@ h3.main_question strong {
 button.backward,
 button.forward,
 button.submit {
-  border: none;
-  color: #fff;
-  text-decoration: none;
-  transition: background .5s ease;
-  -moz-transition: background .5s ease;
-  -webkit-transition: background .5s ease;
-  -o-transition: background .5s ease;
-  display: inline-block;
-  cursor: pointer;
-  outline: none;
-  text-align: center;
-  background: #434bdf;
-  position: relative;
-  font-size: 14px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  border-radius: 3px;
-  line-height: 1;
-  padding: 12px 30px;
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    transition: background .5s ease;
+    -moz-transition: background .5s ease;
+    -webkit-transition: background .5s ease;
+    -o-transition: background .5s ease;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+    background: #4b749f;
+    position: relative;
+    font-size: 14px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    line-height: 1;
+    padding: 12px 30px;
 }
 
 button.backward {
@@ -600,9 +599,11 @@ button.submit:before {
   font-size: 1.125rem;
 }
 
-.backward:hover,
+.backward:hover {
+    background: #CDCDCD;
+}
 .forward:hover {
-  background: #d80075;
+  background: #335884;
   color: #fff;
 }
 
@@ -1275,7 +1276,7 @@ span.error:after {
   cursor: pointer;
 }
 .container_check input:checked ~ .checkmark {
-  background-color: #434bdf;
+  background-color: #4b749f;
   border: 1px solid transparent;
 }
 .container_check .checkmark {
@@ -1815,3 +1816,4 @@ input[type=file]::-webkit-file-upload-button:focus, input[type=file].invalid::-w
   padding-top: 60px;
   padding-bottom: 35px;
 }
+
