@@ -3,6 +3,14 @@
 @section('title', 'Change Password')
 
 @section('content')
+  <style>
+    .content-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+</style>
+
 <div id="wizard_container">
     <form id="wrapped" method="POST" action="{{route('usermanagement.change_password.handle')}}">
       <input id="website" name="website" type="text" value="">

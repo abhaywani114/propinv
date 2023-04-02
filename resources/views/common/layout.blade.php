@@ -70,7 +70,7 @@
   @else
 		<div class="col-lg-6 content-left">
 				<div class="content-left-wrapper">
-					<a href="/" id="logo"><img src="img/restart.svg" alt="" width="25" height="25"></a>
+					<a href="/" id="logo"><img src="/img/restart.svg" alt="" width="25" height="25"></a>
 					<div id="social">
 						<ul>
 							<li><a href="#0"><i class="icon-facebook" hidden="hidden"></i></a></li>
