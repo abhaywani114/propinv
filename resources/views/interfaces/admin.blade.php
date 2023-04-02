@@ -26,8 +26,10 @@ td {
 }
 .fa-ban {
   font-size: 20px;
-  color: #ff0000;
   cursor:pointer;
+}
+.unban, .ban:hover {
+  color: #ff0000;
 }
 </style>
 
@@ -95,17 +97,13 @@ td {
   });
 
   function ban(id) {
-    const doConfirm = confirm("Are you sure you want to ban user?");
-    if (doConfirm === true) {
-        $.post("{{route('usermanagement.user.ban')}}", {
-          user_id: id
-        }).done( (res) => {
-          alert("User had been banned");
-          user_table.ajax.reload();
-        }).fail( (data) => {
-          alert("Some error occcured");
-        });;
-      }
+      $.post("{{route('usermanagement.user.ban')}}", {
+        user_id: id
+      }).done( (res) => {
+        user_table.ajax.reload();
+      }).fail( (data) => {
+        alert("Some error occcured");
+      });;
   }
 </script>
 @endsection

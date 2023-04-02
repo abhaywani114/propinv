@@ -3,6 +3,14 @@
 @section('title', 'Login')
 
 @section('content')
+<style>
+.content-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+</style>
 <div id="wizard_container">
     <form id="wrapped" method="POST" action="{{route('usermanagement.login.handle')}}">
       <input id="website" name="website" type="text" value="">

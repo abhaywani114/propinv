@@ -49,12 +49,16 @@
 	
 	<nav>
 		<ul class="cd-primary-nav">
-			<li><a href="index.html" class="animated_link">Home</a></li>
-			<li><a href="quotation-wizard-version.html" class="animated_link">Quote Version</a></li>
-			<li><a href="review-wizard-version.html" class="animated_link">Review Version</a></li>
-			<li><a href="registration-wizard-version.html" class="animated_link">Registration Version</a></li>
-			<li><a href="about.html" class="animated_link">About Us</a></li>
-			<li><a href="contacts.html" class="animated_link">Contact Us</a></li>
+			<li><a href="/" class="animated_link">Home</a></li>
+      @guest
+			<li><a href="{{route('usermanagement.signup')}}" class="animated_link">Sign up</a></li>
+			<li><a href="{{route('usermanagement.login')}}" class="animated_link">Sign In</a></li>
+      @endguest
+      @auth
+        <li><a href="{{route('usermanagement.change_password')}}" class="animated_link">Change Password</a></li>
+        <li><a href="{{route('usermanagement.logout')}}" class="animated_link">Logout</a></li>
+      @endauth 
+			<li><a href="{{route('contact_us')}}" class="animated_link">Contact Us</a></li>
 		</ul>
 	</nav>
 	<!-- /menu -->

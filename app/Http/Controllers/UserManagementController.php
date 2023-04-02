@@ -287,11 +287,12 @@ class UserManagementController extends Controller
 			addColumn('ban', function ($c) {
 				$id = $c->id;
 
+        $class = '';
         if ($c->status == 'ban')
-          return '';
+          $class =  'unban';
 
 				return <<<EOD
-			<span onclick="ban($id)" class="ban_btn"><i class="fa fa-ban"></i></span>
+			<span onclick="ban($id)" class="ban_btn $class ban"><i class="fa fa-ban"></i></span>
 EOD;
 			})->
 
@@ -324,7 +325,7 @@ EOD;
       if (!$user)
         throw new Exception("Invalid user id");
 
-      $user->status = "ban";
+      $user->status = $user->status == "ban" ? 'active':'ban';
       $user->save();
 
       return response()->json(['status'=>'ok']);
