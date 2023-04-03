@@ -38,7 +38,7 @@
           </div>
         </div>
         <!-- /step-->
-        <div class="step">
+        <div class="step submit">
           <h3 class="main_question"><strong>2/3</strong>Plase provide your account details</h3>
           <div class="form-group">
             <input type="email" name="email" class="form-control required" placeholder="Your Email" onchange="getVals(this, 'email');">
@@ -50,30 +50,6 @@
             <input class="form-control" type="password" id="password2" name="password_confirmation" placeholder="Confirm Password">
           </div>
           <div id="pass-info" class="clearfix"></div>
-        </div>
-        <!-- /step-->
-        <div class="submit step">
-          <h3 class="main_question"><strong>3/3</strong>Summary</h3>
-          <div class="summary">
-            <ul>
-              <li><strong>1</strong>
-                <h5>Personal Details</h5>
-                <ul>
-									<li><label>Agent/Business Name:</label>: <span id="agentname"></span></li>
-                  <li><label>First Name</label>: <span id="first_name"></span></li>
-                  <li><label>Last Name</label>: <span id="last_name"></span></li>
-                  <li><label>Telephone</label>: <span id="agentphone"></span></li>
-                </ul>
-              </li>
-              <li><strong>2</strong>
-                <h5>Account Details</h5>
-                <ul>
-                  <li><label>Email</label>: <span id="email"></span></li>
-                  <li><label>Password</label>: <span id="password"></span></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
         </div>
         <!-- /step-->
       </div>

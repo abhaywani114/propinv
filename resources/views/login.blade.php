@@ -10,9 +10,8 @@
     justify-content: center;
 }
  
-.submit {   
+.back {   
     border: none;
-    color: #fff;
     text-decoration: none;
     transition: background .5s ease;
     -moz-transition: background .5s ease;
@@ -22,7 +21,8 @@
     cursor: pointer;
     outline: none;
     text-align: center;
-    background: #4b749f;
+    color: #777;
+    background: #e8e8e8;
     position: relative;
     font-size: 14px;
     font-size: 0.875rem;
@@ -34,7 +34,9 @@
     line-height: 1;
     padding: 12px 30px;
 }
-.submit:hover {color:#fff;}
+.back:hover {
+    background: #CDCDCD;
+}
 </style>
 <div id="wizard_container">
     <form id="wrapped" method="POST" action="{{route('usermanagement.login.handle')}}">
@@ -62,7 +64,7 @@
           <div class="form-group">
             @csrf
             <button type="submit" name="process" class="submit">Login</button>
-            <a href="/" class="submit" style="float: right;">Back</a>
+            <a href="/" class="back" style="float: right;">Back</a>
           </div>
         </div>
       </div>
