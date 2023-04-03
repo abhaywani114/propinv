@@ -9,7 +9,32 @@
     flex-direction: column;
     justify-content: center;
 }
-
+ 
+.submit {   
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    transition: background .5s ease;
+    -moz-transition: background .5s ease;
+    -webkit-transition: background .5s ease;
+    -o-transition: background .5s ease;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    text-align: center;
+    background: #4b749f;
+    position: relative;
+    font-size: 14px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    line-height: 1;
+    padding: 12px 30px;
+}
+.submit:hover {color:#fff;}
 </style>
 <div id="wizard_container">
     <form id="wrapped" method="POST" action="{{route('usermanagement.login.handle')}}">
@@ -36,7 +61,8 @@
           <div id="pass-info" class="clearfix"></div>
           <div class="form-group">
             @csrf
-            <button type="submit" name="process" class="submit">Submit</button>
+            <button type="submit" name="process" class="submit">Login</button>
+            <a href="/" class="submit" style="float: right;">Back</a>
           </div>
         </div>
       </div>
