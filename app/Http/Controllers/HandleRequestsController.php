@@ -37,7 +37,7 @@ class HandleRequestsController extends Controller
         "furtherinfo" => "Further Info"
       ];
 
-      $request_type = implode(',',$request->question_1);
+      $request_type = implode(',',$request->question_1) ?? "";
       $html = $this->renderHtml($fields, $request);
       $uploadedFile = $this->saveFile("fileupload");
       app('App\Http\Controllers\mailController')->sendForm1($request_type, $html, $uploadedFile);

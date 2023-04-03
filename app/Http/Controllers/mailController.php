@@ -52,23 +52,20 @@ class mailController extends Controller
 	public function sendResetPassword($email, $password) {
 		Mail::send('email.reset_password', compact('email', 'password'), function($message) use ($email) {
 			     $message->from(env('MAIL_FROM_ADDRESS'), 'Hello' );
-           $message->to($email)->
-           subject("Reset Password");
+           $message->to($email)->subject("Reset Password");
        });	
 	}
   
   public function sendVerifyEmail($email, $hash) {
 		Mail::send('email.verify_email', compact('email', 'hash'), function($message) use ($email) {
 			     $message->from(env('MAIL_FROM_ADDRESS'), 'Hello' );
-           $message->to($email)->
-           subject("Verify Email");
+           $message->to($email)->subject("Verify Email");
        });	
 	}
   public function sendForm1($request_type, $html, $uploadedFile) {
 		Mail::send('email.form1_email', compact('request_type', 'html', 'uploadedFile'), function($message) use ($request_type) {
 			     $message->from(env('MAIL_FROM_ADDRESS'), 'Hello' );
-			     $message->to(env('MAIL_FROM_ADDRESS'), 'Hello' );
-           subject($request_type);
+			     $message->to(env('MAIL_FROM_ADDRESS'), 'Hello' )->subject($request_type);
        });	
 	}
 }
