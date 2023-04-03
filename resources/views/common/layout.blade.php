@@ -72,6 +72,7 @@
     .content-right {
         display: flex;
         flex-direction: column;
+        align-items: center;
         justify-content: center;
     }
     .logo_wrapper {

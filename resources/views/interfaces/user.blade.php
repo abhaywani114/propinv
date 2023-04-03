@@ -3,6 +3,12 @@
 @section('title', 'Property Reporting Services - Book a Property Report')
 
 @section('content')
+<style>
+
+    .content-right {
+      justify-content: unset;
+}
+</style>
 <div id="wizard_container" class="my-auto mx-auto wizard" novalidate="novalidate">
 					<div id="top-wizard">
 						<div id="progressbar" class="ui-progressbar ui-widget ui-widget-content ui-corner-all" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><div class="ui-progressbar-value ui-widget-header ui-corner-left ui-corner-right" style="width: 100%;"></div></div>
