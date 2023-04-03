@@ -4,14 +4,7 @@
 
 @section('content')
 <div id="wizard_container">
-  <style>
-    .content-right {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-</style>
-  <div >
+   <div >
   @if($msg['success'] == false)
     <a href="/">Home</a> 
   @endif

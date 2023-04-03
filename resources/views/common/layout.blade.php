@@ -68,6 +68,14 @@
   @if (isset($admin))
         @yield('content')
   @else
+ <style>
+    .content-right {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+</style>
+
 		<div class="col-lg-6 content-left">
 				<div class="content-left-wrapper">
 					<a href="/" id="logo"><img src="/img/restart.svg" alt="" width="25" height="25"></a>

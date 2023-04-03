@@ -4,12 +4,15 @@
 
 @section('content')
   <style>
-    .content-right {
+    #wizard_container {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
         justify-content: center;
     }
+
     .prompt-btn {
+        display: block;
         border: 1px solid #434bdf;
         padding: 15px;
         margin: 12px;
