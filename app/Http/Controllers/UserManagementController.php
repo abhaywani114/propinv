@@ -62,7 +62,7 @@ class UserManagementController extends Controller
 		 	
       
       app('App\Http\Controllers\mailController')->sendVerifyEmail($request->email, $rt);
-      $msg = ["success" => true, "msg" =>	"Account created successfully, please confirm your email and login now."];
+      $msg = ["success" => true, "msg" =>	"Thank you for signing up. Please check your inbox and verify your email to continue."];
 		} catch (Exception $e) {
 			Log::info([
 				"Error"	=>	$e->getMessage(),
