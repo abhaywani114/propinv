@@ -6,7 +6,7 @@
 <div id="wizard_container">
    <div >
   @if($msg['success'] == false)
-    <a href="/">Home</a> 
+    <a href="{{route('homepage')}}">Home</a> 
   @endif
   @if($msg['success'] == true)
     <div class="icon icon--order-success svg" style="margin-bottom: 30px;">

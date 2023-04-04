@@ -49,7 +49,7 @@
 	
 	<nav>
 		<ul class="cd-primary-nav">
-			<li><a href="/" class="animated_link">Home</a></li>
+			<li><a href="{{route('homepage')}}" class="animated_link">Home</a></li>
       @guest
 			<li><a href="{{route('usermanagement.signup')}}" class="animated_link">Sign up</a></li>
 			<li><a href="{{route('usermanagement.login')}}" class="animated_link">Sign In</a></li>
@@ -88,7 +88,7 @@
 
 		<div class="col-lg-6 content-left">
 				<div class="content-left-wrapper">
-					<a href="/" id="logo" class=""><img src="/img/restart.svg" alt="" width="25" height="25"></a>
+					<a href="{{route('homepage')}}" id="logo" class=""><img src="{{asset('/img/restart.svg')}}" alt="" width="25" height="25"></a>
 					<div id="social">
 						<ul>
 							<li><a href="#0"><i class="icon-facebook" hidden="hidden"></i></a></li>
@@ -99,7 +99,7 @@
 					</div>
 					<!-- /social -->
 					<div>
-						<figure class="logo_wrapper"><img src="/img/logo.jpg" alt="house" class="img-fluid"/></figure>
+						<figure class="logo_wrapper"><img src="{{asset('/img/logo.jpg')}}" alt="house" class="img-fluid"/></figure>
 						<h2>Request a Service</h2>
 						<p>Please use the form to request a service from us. Should you encounter any issues or have any queries, please do not hesitate to contact us.</p>
 						<p>If you are requesting a <b>fire asset check or block inspection</b> for the first time, or an <b>eviction</b> is taking place, <b>please contact us first.</b></p>

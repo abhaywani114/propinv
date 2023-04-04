@@ -17,7 +17,7 @@ use App\Http\Controllers\HandleRequestsController;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('homepage');
 
 Route::get('/contact-us', function () {
     return view('contact_us');
