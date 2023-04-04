@@ -62,10 +62,19 @@ class mailController extends Controller
            $message->to($email)->subject("Verify Email");
        });	
 	}
+ 
   public function sendForm1($request_type, $html, $uploadedFile) {
 		Mail::send('email.form1_email', compact('request_type', 'html', 'uploadedFile'), function($message) use ($request_type) {
 			     $message->from(env('MAIL_FROM_ADDRESS'), 'Hello' );
-			     $message->to(env('MAIL_FROM_ADDRESS'), 'Hello' )->subject($request_type);
+			     $message->to(env('MAIL_JOB'))->subject($request_type);
        });	
 	}
+ 
+  public function sendForm1Thankyou($request_type, $html, $uploadedFile, $email) {
+		Mail::send('email.form1_thankyou', compact('request_type', 'html', 'uploadedFile'), function($message) use ($request_type, $email) {
+			     $message->from(env('MAIL_FROM_ADDRESS'), 'Hello' );
+			     $message->to($email)->subject($request_type);
+       });	
+	}
+
 }

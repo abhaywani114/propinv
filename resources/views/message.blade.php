@@ -4,7 +4,7 @@
 
 @section('content')
 <div id="wizard_container">
-   <div >
+   <div style="display: flex;flex-direction: column;align-items: center;">
   @if($msg['success'] == false)
     <a href="{{route('homepage')}}">Home</a> 
   @endif
@@ -18,7 +18,7 @@
          </svg>
      </div>
   @endif
-	  <h4 @if($msg['success'] == false) style="color: red" @endif><span>{{$msg['msg']}}</span></h4>
+	  <h4 @if($msg['success'] == false) style="color: red" @endif><span style="text-align: center;display: block;">{{$msg['msg']}}</span></h4>
   </div>
   
 </div>

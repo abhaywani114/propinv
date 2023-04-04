@@ -252,13 +252,8 @@
                     </ul>
                   </div>
 								</div>
-
-          			<label>Tenancy start date</label>
-								<div class="form-group">
-									<input type="text" name="tend_datepicker" class="form-control required tdate-pick-single valid" id="tend_datepicker_value" />
-								</div>
-
-								<div class="styled-select clearfix form-group">
+                
+                <div class="styled-select clearfix form-group">
 									<select class="wide required valid" name="managementcategory" id="managementcategory_select" style="display: none;">
 										<option value="" disabled="" selected="">Management Category</option>
 										<option value="Not applicable">Not applicable</option>
@@ -267,7 +262,7 @@
 										<option value="Rent Collection">Rent Collection</option>
                   </select>
                   <div class="nice-select wide required" tabindex="0">
-                    <span class="current">What type of tenancy is to be assigned?</span>
+                    <span class="current">Management Category</span>
                     <ul class="list">
                       <li data-value="" class="option disabled focus selected">Management Category</li>
                       <li data-value="Not applicable" class="option">Not applicable</li>
@@ -276,6 +271,12 @@
                       <li data-value="Rent Collection" class="option">Rent Collection</li>
                     </ul>
                   </div>
+								</div>
+
+
+                <label>Tenancy start date</label>
+								<div class="form-group">
+									<input type="text" name="tend_datepicker" class="form-control required tdate-pick-single valid" id="tend_datepicker_value" />
 								</div>
 
 

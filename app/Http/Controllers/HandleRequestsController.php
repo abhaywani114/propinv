@@ -41,7 +41,8 @@ class HandleRequestsController extends Controller
       $html = $this->renderHtml($fields, $request);
       $uploadedFile = $this->saveFile("fileupload");
       app('App\Http\Controllers\mailController')->sendForm1($request_type, $html, $uploadedFile);
-      $msg = ["success" => true, "msg" =>	"Your response has been recorded, we will contact you shortly"];
+      app('App\Http\Controllers\mailController')->sendForm1Thankyou($request_type, $html, $uploadedFile, \Auth::User()->email);
+      $msg = ["success" => true, "msg" =>	"Thank you. Your instruction has been received and will be processed shortly."];
     } catch (Exception $e) {
       Log::info([
 				"Error"	=>	$e->getMessage(),

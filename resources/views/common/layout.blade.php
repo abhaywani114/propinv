@@ -79,9 +79,7 @@
       display: flex !important;
       justify-content: space-between;
       align-items: center;
-      padding: 10px;
-      background: #fff;
-      max-width: fit-content;
+      max-width: 70%;
       margin: auto;
   }
 </style>
@@ -99,7 +97,7 @@
 					</div>
 					<!-- /social -->
 					<div>
-						<figure class="logo_wrapper"><img src="{{asset('/img/logo.jpg')}}" alt="house" class="img-fluid"/></figure>
+						<figure class="logo_wrapper"><img src="{{asset('/img/logo.png')}}" alt="house" class="img-fluid"/></figure>
 						<h2>Request a Service</h2>
 						<p>Please use the form to request a service from us. Should you encounter any issues or have any queries, please do not hesitate to contact us.</p>
 						<p>If you are requesting a <b>fire asset check or block inspection</b> for the first time, or an <b>eviction</b> is taking place, <b>please contact us first.</b></p>
