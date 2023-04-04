@@ -68,5 +68,5 @@
 
 @section('js')
 	<!-- Wizard script -->
-	<script src="/js/registration_func.js"></script>
+	<script src="{{asset('/js/registration_func.js')}}"></script>
 @endsection

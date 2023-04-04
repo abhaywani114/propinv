@@ -421,7 +421,7 @@
 
 @section('js')
 	<!-- Wizard script -->
-	<script src="js/quotation_func.js"></script>
+	<script src="{{asset('/js/quotation_func.js')}}"></script>
 	<script type="text/javascript">
 
     Array.from(document.links).forEach((anchor) => {
