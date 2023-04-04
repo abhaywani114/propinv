@@ -64,7 +64,7 @@
           <div class="form-group">
             @csrf
             <button type="submit" name="process" class="submit">Login</button>
-            <a href="/" class="back" style="float: right;">Back</a>
+            <a href="{{route('homepage')}}" class="back" style="float: right;">Back</a>
           </div>
         </div>
       </div>
