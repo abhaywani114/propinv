@@ -14,8 +14,7 @@ use App\Http\Controllers\HandleRequestsController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', function () {
+Route::get(env('APP_DIR'), function () {
     return view('welcome');
 })->name('homepage');
 
