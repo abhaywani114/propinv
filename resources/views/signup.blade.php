@@ -31,11 +31,19 @@
           </div>
 
          <div class="form-group terms">
-            <label class="container_check">Please accept our <a href="#" data-bs-toggle="modal" data-bs-target="#terms-txt">Terms and conditions</a>
+            <label class="container_check">I have read and accept the <a href="{{route('terms_conditions')}}" target="_blank" >Terms and conditions</a>
               <input type="checkbox" name="terms" value="Yes" class="required">
               <span class="checkmark"></span>
             </label>
           </div>
+
+        <div class="form-group terms">
+            <label class="container_check">I have read and accept the <a href="{{route('privacy_policy')}}" target="_blank">Privacy Policy</a>
+              <input type="checkbox" name="privacy_policy" value="Yes" class="required">
+              <span class="checkmark"></span>
+            </label>
+          </div>
+
         </div>
         <!-- /step-->
         <div class="step submit">

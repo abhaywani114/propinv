@@ -22,6 +22,14 @@ Route::get('/contact-us', function () {
     return view('contact_us');
 })->name('contact_us');
 
+Route::get('/privacy-policy', function () {
+    return view('company.privacy_policy');
+})->name('privacy_policy');
+
+Route::get('/terms-and-conditions', function () {
+    return view('company.toc');
+})->name('terms_conditions');
+
 
 
 //User Management Routes
