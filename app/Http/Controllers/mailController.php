@@ -35,11 +35,14 @@ class mailController extends Controller
                 "email" => ['required','email'],
                 "message" => ['required'],
         	]);
+
+      $reply = $request->email;
 			 
-			Mail::send('email.contact_support',compact('data') , function($message) use ($data) {
+			Mail::send('email.contact_support',compact('data') , function($message) use ($data, $reply) {
 			   $sub = $data['subject'] ?? '';
 			   $message->from(env('MAIL_FROM_ADDRESS'), 'Hello' );
-			   $message->to(env('MAIL_FROM_ADDRESS'))->subject("$sub | Contact Request");
+         $message->replyTo($reply);
+			   $message->to(env('MAIL_CONTACT'))->subject("$sub  Contact Request");
 			});
     } catch (Exception $e) {
       throw $e;
