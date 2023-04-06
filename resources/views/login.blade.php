@@ -63,7 +63,7 @@
           <div id="pass-info" class="clearfix"></div>
           <div class="form-group">
             @csrf
-            <button type="submit" name="process" class="submit">Login</button>
+            <button type="submit" name="process" class="back" style="background:#4b749f; color:#fff;">Login</button>
             <a href="{{route('homepage')}}" class="back" style="float: right;">Back</a>
           </div>
         </div>

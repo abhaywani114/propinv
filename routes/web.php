@@ -30,6 +30,11 @@ Route::get('/terms-and-conditions', function () {
     return view('company.toc');
 })->name('terms_conditions');
 
+Route::get('/cookie-policy', function () {
+    return view('company.cookie');
+})->name('cookie_policy');
+
+
 
 
 //User Management Routes

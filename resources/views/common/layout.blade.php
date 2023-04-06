@@ -170,6 +170,8 @@
  		});
 
   </script>
+<script src="https://cdn.websitepolicies.io/lib/cconsent/cconsent.min.js" defer></script>
+<script>window.addEventListener("load",function(){window.wpcb.init({"border":"thin","corners":"small","colors":{"popup":{"background":"#606060","text":"#ffffff","border":"#f9f9f9"},"button":{"background":"#f9f9f9","text":"#000000"}},"position":"bottom","padding":"small","content":{"href":"{{route('cookie_policy')}}"}})});</script>
   @yield('js')
 </body>
 </html>
