@@ -20,7 +20,7 @@
 						<div class="col-md-6 col-sm-6">
 							<div class="form-group">
 								<label>First name</label>
-								<input type="text" class="form-control" id="name_contact" name="first_name" placeholder="Jhon">
+								<input type="text" class="form-control" id="name_contact" name="first_name" placeholder="John">
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-6">
@@ -34,13 +34,13 @@
 						<div class="col-md-6 col-sm-6">
 							<div class="form-group">
 								<label>Email</label>
-								<input type="email" id="email_contact" name="email" class="form-control" placeholder="jhon@email.com">
+								<input type="email" id="email_contact" name="email" class="form-control" placeholder="John@email.com">
 							</div>
 						</div>
 						<div class="col-md-6 col-sm-6">
 							<div class="form-group">
 								<label>Phone number</label>
-								<input type="text" id="phone_contact" name="phone" class="form-control" placeholder="00 44 5435435">
+								<input type="text" id="phone_contact" name="phone" class="form-control" placeholder="00 44 123 456 789">
 							</div>
 						</div>
 					</div>
@@ -66,27 +66,26 @@
 			<div class="box_style_2">
 				<h4>Contacts info</h4>
 				<p>
-					11 Fifth Ave - New York, US
-					<br> + 61 (2) 8093 3400
-					<br>
-					<a href="#">info@domain.com</a>
+            35 Firs Avenue, London, N11 3NE
+          <br> +44 33 333 999 57				
+          <br><a href="mailto://hello@prms.uk">hello@prms.uk</a>
 				</p>
 				<hr class="styled">
-				<h4>Departmens</h4>
+				<h4>Departments</h4>
 				<ul class="contacts_info">
 					<li>Administration
 						<br>
-						<a href="tel://003823932342">0038 23932342</a>
-						<br><a href="tel://003823932342">admin@Wilio.com</a>
+						<a href="tel://+44 33 333 999 57">+44 33 333 999 57</a>
+						<br><a href="mailto://hello@prms.uk">hello@prms.uk</a>
 						<br>
-						<small>Monday to Friday 9am - 7pm</small>
+						<small>Monday to Friday 9am - 5pm</small>
 					</li>
-					<li>General questions
+					<li>Compliance & Privacy
 						<br>
-						<a href="tel://003823932342">0038 23932342</a>
-						<br><a href="tel://003823932342">questions@Wilio.com</a>
+						<a href="tel://+44 33 333 999 57">+44 33 333 999 57</a>
+						<br><a href="mailto://hello@prms.uk">privacy@prms.uk</a>
 						<br>
-						<small>Monday to Friday 9am - 7pm</small>
+						<small>Monday to Friday 9am - 5pm</small>
 					</li>
 				</ul>
 			</div>
