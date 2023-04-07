@@ -11,7 +11,7 @@
 		<div class="col-lg-8">
 			<h3>Contact us</h3>
 			<p>
-				Mussum ipsum cacilds, vidis litro abertis.
+        Please fill out the form below and a member of our team will contact you soon.
 			</p>
 			<div>
 				<div id="message-contact"></div>
