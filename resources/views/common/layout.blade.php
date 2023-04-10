@@ -102,7 +102,7 @@
 						<a href="{{route('contact_us')}}" class="btn_1 rounded">Contact Us</a>
 						<a href="#start" class="btn_1 rounded mobile_btn">Contact Us</a>
 					</div>
-					<div class="copy">© {{date('Y')}} Property Report Management Services</div>
+					<div class="copy">© {{date('Y')}} Property Report Management Services LTD. All rights reserved.</div>
 				</div>
 				<!-- /content-left-wrapper -->
 			</div>
