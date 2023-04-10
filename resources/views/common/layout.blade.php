@@ -8,11 +8,11 @@
     <title>@yield('title')</title>
 
     <!-- Favicons-->
-    <link rel="shortcut icon" href="{{asset('/img/favicon/favicon.ico')}}" type="image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="{{asset('/img/favicon.apple-touch-icon-57x57-precomposed.png')}}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{asset('/img/favicon/apple-touch-icon-72x72-precomposed.png')}}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{{asset('/img/favicon/apple-touch-icon-114x114-precomposed.png')}}">
-    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{{asset('/img/favicon/apple-touch-icon-144x144-precomposed.png')}}">
+    <link rel="shortcut icon" href="{{asset('/img/favicon/favicon.png')}}" type="image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href="{{asset('/img/favicon/favicon.png')}}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72" href="{{asset('/img/favicon/favicon.png')}}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114" href="{{asset('/img/favicon/favicon.png')}}">
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144" href="{{asset('/img/favicon/favicon.png')}}">
 
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600" rel="stylesheet">
@@ -31,7 +31,35 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.22/datatables.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
 <style>
+nav {
+    position: absolute;
+    right: 0;
+    width: 20%;
+    overflow: hidden;
+    box-shadow: 1px 0px 3px 1px #dad5d5cc;
+    transform: translateY(-25%);
+    z-index: 1;
+}
 
+.cd-primary-nav.fade-in {
+  width: 100%;
+  position: relative;
+}
+.cd-primary-nav li {
+    margin: 11px 0px;
+}
+.cd-primary-nav a {
+  font-size: 12px;
+} 
+.cd-nav-trigger:hover ~ .cd-primary-nav.fade-in {
+    visibility: visible;
+    opacity: 1;
+}
+@media (max-width: 767px){
+  nav {
+      width: 60%;
+  }
+}
 </style>
 </head>
 
