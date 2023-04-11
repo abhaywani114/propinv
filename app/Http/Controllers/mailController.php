@@ -40,8 +40,9 @@ class mailController extends Controller
 			 
 			Mail::send('email.contact_support',compact('data') , function($message) use ($data, $reply) {
 			   $sub = $data['subject'] ?? '';
-			   $message->from(env('MAIL_FROM_ADDRESS'), 'Hello' );
+			   $message->from(env('MAIL_FROM_ADDRESS'), 'PRMS' );
          $message->replyTo($reply);
+         $message->cc(env('MAIL_CC'));
 			   $message->to(env('MAIL_CONTACT'))->subject("$sub  Contact Request");
 			});
     } catch (Exception $e) {
@@ -54,28 +55,29 @@ class mailController extends Controller
 
 	public function sendResetPassword($email, $password) {
 		Mail::send('email.reset_password', compact('email', 'password'), function($message) use ($email) {
-			     $message->from(env('MAIL_FROM_ADDRESS'), 'Hello' );
+			     $message->from(env('MAIL_FROM_ADDRESS'), 'PRMS' );
            $message->to($email)->subject("Reset Password");
        });	
 	}
   
   public function sendVerifyEmail($email, $hash) {
 		Mail::send('email.verify_email', compact('email', 'hash'), function($message) use ($email) {
-			     $message->from(env('MAIL_FROM_ADDRESS'), 'Hello' );
+			     $message->from(env('MAIL_FROM_ADDRESS'), 'PRMS' );
            $message->to($email)->subject("Verify Email");
        });	
 	}
  
   public function sendForm1($request_type, $html, $uploadedFile) {
 		Mail::send('email.form1_email', compact('request_type', 'html', 'uploadedFile'), function($message) use ($request_type) {
-			     $message->from(env('MAIL_FROM_ADDRESS'), 'Hello' );
+			     $message->from(env('MAIL_FROM_ADDRESS'), 'PRMS' );
+           $message->cc(env('MAIL_CC'));
 			     $message->to(env('MAIL_JOB'))->subject($request_type);
        });	
 	}
  
   public function sendForm1Thankyou($request_type, $html, $uploadedFile, $email) {
 		Mail::send('email.form1_thankyou', compact('request_type', 'html', 'uploadedFile'), function($message) use ($request_type, $email) {
-			     $message->from(env('MAIL_FROM_ADDRESS'), 'Hello' );
+			     $message->from(env('MAIL_FROM_ADDRESS'), 'PRMS' );
 			     $message->to($email)->subject($request_type);
        });	
 	}
