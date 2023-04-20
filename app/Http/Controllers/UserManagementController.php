@@ -104,7 +104,7 @@ class UserManagementController extends Controller
 				]);
 
 				if ($validator->fails()) {
-          throw new Exception($validator->getMessageBag()->toArray());
+           throw new Exception(implode("<br/>",$validator->messages()->all()));
 				} 
 		
 				$credentials = $request->only('email', 'password');
