@@ -252,7 +252,7 @@
                     </ul>
                   </div>
 								</div>
-                
+
                 <div class="styled-select clearfix form-group">
 									<select class="wide required valid" name="managementcategory" id="managementcategory_select" style="display: none;">
 										<option value="" disabled="" selected="">Management Category</option>
@@ -301,7 +301,7 @@
 								</div>
 							</div>
 							<!-- /step-->
-    
+
               <div class="step wizard-step" style="display: none;">
 								<h3 class="main_question"><strong>7/8</strong>Is there anything else we need to know?</h3>
 								<div class="form-group add_top_30">
@@ -316,7 +316,7 @@
 								</div>
 								<div class="form-group terms">
 									<label class="container_check">
-										I have read and I accept the <a href="#" data-bs-toggle="modal" data-bs-target="#terms-txt">Terms and conditions</a>
+										I have read and I accept the <a href="{{route('terms_conditions_ii')}}" target="_blank">Terms and conditions</a>
 										<input type="checkbox" name="terms" value="Yes" class="required valid"><span for="terms" class="error" style="display: none;">Required</span>
 										<span class="checkmark" onclick="fn()"></span>
 									</label>
@@ -435,7 +435,7 @@
               });
           }
       });
-                  
+
     $('input.tdate-pick-single').daterangepicker({
         autoUpdateInput: false,
         singleDatePicker: true,

@@ -30,34 +30,41 @@ Route::get('/terms-and-conditions', function () {
     return view('company.toc');
 })->name('terms_conditions');
 
+Route::get('/terms-and-conditions-teant', function () {
+    return view('company.toc-client');
+})->name('terms_conditions_ii');
+
+
+
 Route::get('/cookie-policy', function () {
     return view('company.cookie');
 })->name('cookie_policy');
 
+Route::view('/cookie-policy', 'company.cookie')->name('cookie_policy');
 
 
 
 //User Management Routes
 Route::get('usermanagement/login', [UserManagementController::class, "login"])->
-	name('usermanagement.login')->middleware('guest');
+  name('usermanagement.login')->middleware('guest');
 
 Route::get('usermanagement/signup', [UserManagementController::class, "signup"])->
-	name('usermanagement.signup')->middleware('guest');;
+  name('usermanagement.signup')->middleware('guest');;
 
 Route::get('usermanagement/verify-email/{hash}', [UserManagementController::class, "verifyEmail"])->
-	name('usermanagement.verify.email');
+  name('usermanagement.verify.email');
 
 Route::post('usermanagement/signup-handle', [UserManagementController::class, "signupHanlde"])->
-	name('usermanagement.signup.handle')->middleware('guest');;
+  name('usermanagement.signup.handle')->middleware('guest');;
 
 Route::post('usermanagement/login-handle', [UserManagementController::class, "loginHandle"])->
-	name('usermanagement.login.handle')->middleware('guest');
+  name('usermanagement.login.handle')->middleware('guest');
 
 Route::post('usermanagement/reset', [UserManagementController::class, "reset"])->
-	name('usermanagement.reset')->middleware('guest');
+  name('usermanagement.reset')->middleware('guest');
 
 Route::get('usermanagement/logout', [UserManagementController::class, "logout"])->
-	name('usermanagement.logout')->middleware('auth');
+  name('usermanagement.logout')->middleware('auth');
 
 Route::get('usermanagement/change-password', [UserManagementController::class, "changePassword"])->
   name('usermanagement.change_password')->middleware('auth');
