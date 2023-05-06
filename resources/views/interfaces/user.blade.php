@@ -445,11 +445,11 @@
         locale: {
         	separator:' > ',
             direction: 'ltr',
-            format: 'MM/DD/YY'
+            format: 'DD/MM/YY'
         }
       }, function (chosen_date) {
-        $('input.tdate-pick-single').val(chosen_date.format('MM/DD/YY'));
-        $("#tend_datepicker_span").text(chosen_date.format('MM/DD/YY'));
+        $('input.tdate-pick-single').val(chosen_date.format('DD/MM/YY'));
+        $("#tend_datepicker_span").text(chosen_date.format('DD/MM/YY'));
       });
 
     // Date picker single
@@ -462,11 +462,11 @@
         locale: {
         	separator:' > ',
             direction: 'ltr',
-            format: 'MM/DD/YY'
+            format: 'DD/MM/YY'
         }
       }, function (chosen_date) {
-        $('input.date-pick-single').val(chosen_date.format('MM/DD/YY'));
-        $("#date").text(chosen_date.format('MM/DD/YY'));
+        $('input.date-pick-single').val(chosen_date.format('DD/MM/YY'));
+        $("#date").text(chosen_date.format('DD/MM/YY'));
     });
 
     function fn() {}
